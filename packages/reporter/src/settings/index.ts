@@ -17,6 +17,7 @@ import {
   polygon,
   sepolia,
 } from "viem/chains"
+import { unichainSepolia } from "../utils/customChain"
 
 export const settings = {
   Coordinator: {
@@ -38,6 +39,7 @@ export const settings = {
     [arbitrum.name]: process.env.ARBITRUM_RPC_URL as string,
     [sepolia.name]: process.env.SEPOLIA_RPC_URL as string,
     [base.name]: process.env.BASE_RPC_URL as string,
+    [unichainSepolia.name]: process.env.UNICHAIN_SEPOLIA_RPC_URL as string,
   },
   beaconApiUrls: {
     [goerli.name]: process.env.GOERLI_BEACON_API_URL as string,
@@ -79,10 +81,6 @@ export const settings = {
           [base.name]: {
             LayerZeroAdapter: process.env.BASE_MAINNET_LAYER_ZERO_ADAPTER as `0x${string}`,
           },
-          /*[goerli.name]: {
-            AMBReporter: "0xedc0b1d3de4496e0d917af42f29cb71eb2982319" as `0x${string}`,
-            SygmaReporter: "0x2f96d347c932ac73b56e9352ecc0707e25173d88" as `0x${string}`,
-          },*/
         },
         [base.name]: {
           [polygon.name]: {
@@ -205,13 +203,13 @@ export const settings = {
           [arbitrumSepolia.name]: {
             LayerZeroAdapter: process.env.SEPOLIA_ARB_LZ_ADAPTER as `0x${string}`,
           },
-        },
-        [goerli.name]: {
-          [bscTestnet.name]: {
-            ZetaChainAdapter: process.env.BSC_TESTNET_ZETA_ADAPTER_GOERLI as `0x${string}`,
+          [unichainSepolia.name]: {
+            LayerZeroAdapter: process.env.UNICHAIN_SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
-          [gnosisChiado.name]: {
-            ElectronAdapter: process.env.CHIADO_ELECTRON_ADAPTER_GOERLI as `0x${string}`,
+        },
+        [unichainSepolia.name]: {
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
         },
       },
@@ -385,10 +383,13 @@ export const settings = {
           [arbitrumSepolia.name]: {
             LayerZeroReporter: process.env.SEPOLIA_ARB_LZ_REPORTER as `0x${string}`,
           },
+          [unichainSepolia.name]: {
+            LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
         },
-        [goerli.name]: {
-          [bscTestnet.name]: {
-            ZetaChainReporter: process.env.GOERLI_ZETA_REPORTER_BSC_TESTNET as `0x${string}`,
+        [unichainSepolia.name]: {
+          [sepolia.name]: {
+            LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
         },
       },

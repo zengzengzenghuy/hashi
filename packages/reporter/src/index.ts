@@ -14,6 +14,7 @@ import {
   mainnet,
   sepolia,
 } from "viem/chains"
+import { unichainSepolia } from "./utils/customChain"
 import { Chain } from "viem"
 import { logger } from "@gnosis/hashi-common"
 
@@ -43,6 +44,7 @@ import { settings } from "./settings/index"
     polygon,
     mainnet,
     sepolia,
+    unichainSepolia,
   ]
   const sourceChain: Chain = Object.values(chains).find((_chain) => _chain.id === sourceChainId) as Chain
   const destinationChains: Chain[] = Object.values(chains).filter((_chain) => destinationChainIds?.includes(_chain.id))
@@ -170,6 +172,9 @@ import { settings } from "./settings/index"
       [base.name]: unidirectionalReportersAddresses[sourceChain.name]?.[base.name]?.LayerZeroReporter,
       [optimism.name]: unidirectionalReportersAddresses[sourceChain.name]?.[optimism.name]?.LayerZeroReporter,
       [arbitrum.name]: unidirectionalReportersAddresses[sourceChain.name]?.[arbitrum.name]?.LayerZeroReporter,
+      [unichainSepolia.name]:
+        unidirectionalReportersAddresses[sourceChain.name]?.[unichainSepolia.name]?.LayerZeroReporter,
+      [sepolia.name]: unidirectionalReportersAddresses[sourceChain.name]?.[sepolia.name]?.LayerZeroReporter,
     },
     adapterAddresses: {
       [polygon.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[polygon.name]?.LayerZeroAdapter,
@@ -178,6 +183,9 @@ import { settings } from "./settings/index"
       [base.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[base.name]?.LayerZeroAdapter,
       [optimism.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[optimism.name]?.LayerZeroAdapter,
       [arbitrum.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[arbitrum.name]?.LayerZeroAdapter,
+      [unichainSepolia.name]:
+        unidirectionalAdaptersAddresses[sourceChain.name]?.[unichainSepolia.name]?.LayerZeroAdapter,
+      [sepolia.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[sepolia.name]?.LayerZeroAdapter,
     },
     reportHeadersValue: settings.reporterControllers.LayerZeroReporterController.reportHeadersValue,
   })
