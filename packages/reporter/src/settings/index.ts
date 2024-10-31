@@ -5,6 +5,7 @@ import {
   arbitrumSepolia,
   avalanche,
   base,
+  baseSepolia,
   bsc,
   bscTestnet,
   gnosis,
@@ -12,12 +13,11 @@ import {
   goerli,
   mainnet,
   optimism,
-  optimismGoerli,
   optimismSepolia,
   polygon,
   sepolia,
 } from "viem/chains"
-import { unichainSepolia } from "../utils/customChain"
+import { unichainSepolia, worldchainSepolia, polygonAmoy } from "../utils/customChain"
 
 export const settings = {
   Coordinator: {
@@ -30,16 +30,22 @@ export const settings = {
     },
   },
   rpcUrls: {
+    [arbitrum.name]: process.env.ARBITRUM_RPC_URL as string,
+    [arbitrumSepolia.name]: process.env.ARBITRUM_SEPOLIA_RPC_URL as string,
+    [base.name]: process.env.BASE_RPC_URL as string,
+    [baseSepolia.name]: process.env.BASE_SEPOLIA_RPC_URL as string,
+    [bsc.name]: process.env.BSC_RPC_URL as string,
     [gnosis.name]: process.env.GNOSIS_RPC_URL as string,
+    [gnosisChiado.name]: process.env.CHIADO_RPC_URL as string,
     [goerli.name]: process.env.GOERLI_RPC_URL as string,
     [mainnet.name]: process.env.MAINNET_RPC_URL as string,
-    [polygon.name]: process.env.POLYGON_RPC_URL as string,
     [optimism.name]: process.env.OPTIMISM_RPC_URL as string,
-    [bsc.name]: process.env.BSC_RPC_URL as string,
-    [arbitrum.name]: process.env.ARBITRUM_RPC_URL as string,
+    [optimismSepolia.name]: process.env.OPTIMISM_SEPOLIA_RPC_URL as string,
+    [polygon.name]: process.env.POLYGON_RPC_URL as string,
+    [polygonAmoy.name]: process.env.POLYGON_AMOY_RPC_URL as string,
     [sepolia.name]: process.env.SEPOLIA_RPC_URL as string,
-    [base.name]: process.env.BASE_RPC_URL as string,
     [unichainSepolia.name]: process.env.UNICHAIN_SEPOLIA_RPC_URL as string,
+    [worldchainSepolia.name]: process.env.WORLDCHAIN_SEPOLIA_RPC_URL as string,
   },
   beaconApiUrls: {
     [goerli.name]: process.env.GOERLI_BEACON_API_URL as string,
@@ -56,7 +62,6 @@ export const settings = {
           },
           [gnosis.name]: {
             TelepathyAdapter: process.env.GNOSIS_TELEPATHY_ADAPTER as `0x${string}`,
-            AMBAdapter: process.env.GNOSIS_AMB_ADAPTER as `0x${string}`,
             ConnextAdapter: process.env.GNOSIS_CONNEXT_ADAPTER_MAINNET as `0x${string}`,
             SygmaAdapter: process.env.GNOSIS_SYGMA_ADAPTER as `0x${string}`, // this works with many chains
           },
@@ -184,30 +189,128 @@ export const settings = {
             LayerZeroAdapter: process.env.OPTIMISM_LZ_ADAPTER as `0x${string}`,
           },
         },
-        [sepolia.name]: {
-          [optimismSepolia.name]: {
-            LayerZeroAdapter: process.env.OPTIMISM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+        [arbitrumSepolia.name]: {
+          [baseSepolia.name]: {
+            LayerZeroAdapter: process.env.BASE_SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
-          [optimismGoerli.name]: {
-            CCIPAdapter: process.env.OPTIMISM_GOERLI_CCIP_ADAPTER_SEPOLIA as `0x${string}`,
+          [gnosisChiado.name]: {
+            LayerZeroAdapter: process.env.CHIADO_LZ_ADAPTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroAdapter: process.env.UNICHAIN_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+        },
+        [baseSepolia.name]: {
+          [arbitrumSepolia.name]: {
+            LayerZeroAdapter: process.env.ARBITRUM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [gnosisChiado.name]: {
+            LayerZeroAdapter: process.env.CHIADO_LZ_ADAPTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroAdapter: process.env.UNICHAIN_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+        },
+        [sepolia.name]: {
+          [arbitrumSepolia.name]: {
+            LayerZeroAdapter: process.env.ARBITRUM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroAdapter: process.env.BASE_SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
           [bscTestnet.name]: {
             CCIPAdapter: process.env.BSC_TESTNET_CCIP_ADAPTER_SEPOLIA as `0x${string}`,
           },
           [gnosisChiado.name]: {
-            AMBAdapter: process.env.SEPOLIA_CHIADO_AMB_ADAPTER as `0x${string}`,
             CCIPAdapter: process.env.SEPOLIA_CHIADO_CCIP_ADAPTER as `0x${string}`,
-            LayerZeroAdapter: process.env.SEPOLIA_CHIADO_LZ_ADAPTER as `0x${string}`,
+            LayerZeroAdapter: process.env.CHIADO_LZ_ADAPTER as `0x${string}`,
             WormholeAdapter: process.env.SEPOLIA_CHIADO_WORMHOLE_ADAPTER as `0x${string}`,
           },
+          [optimismSepolia.name]: {
+            LayerZeroAdapter: process.env.OPTIMISM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroAdapter: process.env.UNICHAIN_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [worldchainSepolia.name]: {
+            LayerZeroAdapter: process.env.WORLDCHAIN_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+        },
+        [unichainSepolia.name]: {
           [arbitrumSepolia.name]: {
-            LayerZeroAdapter: process.env.SEPOLIA_ARB_LZ_ADAPTER as `0x${string}`,
+            LayerZeroAdapter: process.env.ARBITRUM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroAdapter: process.env.BASE_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
+          },
+        },
+        [gnosisChiado.name]: {
+          [arbitrumSepolia.name]: {
+            LayerZeroAdapter: process.env.ARBITRUM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroAdapter: process.env.BASE_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
+          },
+        },
+        [polygonAmoy.name]: {
+          [arbitrumSepolia.name]: {
+            LayerZeroAdapter: process.env.ARBITRUM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroAdapter: process.env.BASE_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [gnosisChiado.name]: {
+            LayerZeroAdapter: process.env.CHIADO_LZ_ADAPTER as `0x${string}`,
           },
           [unichainSepolia.name]: {
             LayerZeroAdapter: process.env.UNICHAIN_SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
         },
         [unichainSepolia.name]: {
+          [arbitrumSepolia.name]: {
+            LayerZeroAdapter: process.env.ARBITRUM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroAdapter: process.env.BASE_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
+          },
+        },
+        [worldchainSepolia.name]: {
           [sepolia.name]: {
             LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
@@ -241,7 +344,6 @@ export const settings = {
             LayerZeroReporter: process.env.MAINNET_LAYER_ZERO_REPORTER as `0x${string}`,
           },
           [gnosis.name]: {
-            AMBReporter: process.env.MAINNET_AMB_REPORTER as `0x${string}`,
             ConnextReporter: process.env.MAINNET_CONNEXT_REPORTER_GNOSIS as `0x${string}`,
             SygmaReporter: process.env.MAINNET_SYGMA_REPORTER_GNOSIS as `0x${string}`,
           },
@@ -364,32 +466,99 @@ export const settings = {
             LayerZeroReporter: process.env.BSC_LZ_REPORTER as `0x${string}`,
           },
         },
-        [sepolia.name]: {
-          [optimismSepolia.name]: {
-            LayerZeroReporter: process.env.SEPOLIA_CHIADO_LZ_REPORTER as `0x${string}`,
-          },
-          [optimismGoerli.name]: {
-            CCIPReporter: process.env.SEPOLIA_CCIP_REPORTER_OPTIMISM_GOERLI as `0x${string}`,
-          },
-          [bscTestnet.name]: {
-            CCIPReporter: process.env.SEPOLIA_CCIP_REPORTER_BSC_TESTNET as `0x${string}`,
+        [arbitrumSepolia.name]: {
+          [baseSepolia.name]: {
+            LayerZeroReporter: process.env.ARBITRUM_SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
           [gnosisChiado.name]: {
-            AMBReporter: process.env.SEPOLIA_CHIADO_AMB_REPORTER as `0x${string}`,
+            LayerZeroReporter: process.env.ARBITRUM_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroReporter: process.env.ARBITRUM_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroReporter: process.env.ARBITRUM_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroReporter: process.env.ARBITRUM_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+        },
+        [baseSepolia.name]: {
+          [arbitrumSepolia.name]: {
+            LayerZeroReporter: process.env.BASE_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [gnosisChiado.name]: {
+            LayerZeroReporter: process.env.BASE_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [sepolia.name]: {
+            LayerZeroReporter: process.env.BASE_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroReporter: process.env.BASE_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroReporter: process.env.BASE_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+        },
+        [gnosisChiado.name]: {
+          [sepolia.name]: {
+            LayerZeroReporter: process.env.CHIADO_LZ_REPORTER as `0x${string}`,
+          },
+          [arbitrumSepolia.name]: {
+            LayerZeroReporter: process.env.CHIADO_LZ_REPORTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroReporter: process.env.CHIADO_LZ_REPORTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroReporter: process.env.CHIADO_LZ_REPORTER as `0x${string}`,
+          },
+        },
+        [sepolia.name]: {
+          [baseSepolia.name]: {
+            LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [optimismSepolia.name]: {
+            LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [bscTestnet.name]: {
+            CCIPReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [gnosisChiado.name]: {
             CCIPReporter: process.env.SEPOLIA_CHIADO_CCIP_REPORTER as `0x${string}`,
-            LayerZeroReporter: process.env.SEPOLIA_CHIADO_LZ_REPORTER as `0x${string}`,
+            LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
             WormholeReporter: process.env.SEPOLIA_CHIADO_WORMHOLE_REPORTER as `0x${string}`,
           },
           [arbitrumSepolia.name]: {
-            LayerZeroReporter: process.env.SEPOLIA_ARB_LZ_REPORTER as `0x${string}`,
+            LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
           [unichainSepolia.name]: {
             LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
+          [worldchainSepolia.name]: {
+            LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
         },
         [unichainSepolia.name]: {
+          [arbitrumSepolia.name]: {
+            LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
           [sepolia.name]: {
             LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [polygonAmoy.name]: {
+            LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+        },
+        [worldchainSepolia.name]: {
+          [sepolia.name]: {
+            LayerZeroReporter: process.env.WORLDCHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
         },
       },

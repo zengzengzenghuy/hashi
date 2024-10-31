@@ -3,18 +3,18 @@ import {
   arbitrumSepolia,
   avalanche,
   base,
+  baseSepolia,
   bsc,
   bscTestnet,
   gnosis,
   gnosisChiado,
-  goerli,
-  optimism,
-  optimismGoerli,
-  polygon,
   mainnet,
+  optimism,
+  optimismSepolia,
+  polygon,
   sepolia,
 } from "viem/chains"
-import { unichainSepolia } from "./utils/customChain"
+import { unichainSepolia, worldchainSepolia, polygonAmoy } from "./utils/customChain"
 import { Chain } from "viem"
 import { logger } from "@gnosis/hashi-common"
 
@@ -34,17 +34,19 @@ import { settings } from "./settings/index"
     avalanche,
     arbitrumSepolia,
     base,
+    baseSepolia,
     bsc,
     bscTestnet,
     gnosis,
     gnosisChiado,
-    goerli,
     optimism,
-    optimismGoerli,
+    optimismSepolia,
     polygon,
+    polygonAmoy,
     mainnet,
     sepolia,
     unichainSepolia,
+    worldchainSepolia,
   ]
   const sourceChain: Chain = Object.values(chains).find((_chain) => _chain.id === sourceChainId) as Chain
   const destinationChains: Chain[] = Object.values(chains).filter((_chain) => destinationChainIds?.includes(_chain.id))
@@ -175,6 +177,15 @@ import { settings } from "./settings/index"
       [unichainSepolia.name]:
         unidirectionalReportersAddresses[sourceChain.name]?.[unichainSepolia.name]?.LayerZeroReporter,
       [sepolia.name]: unidirectionalReportersAddresses[sourceChain.name]?.[sepolia.name]?.LayerZeroReporter,
+      [gnosisChiado.name]: unidirectionalReportersAddresses[sourceChain.name]?.[gnosisChiado.name]?.LayerZeroReporter,
+      [arbitrumSepolia.name]:
+        unidirectionalReportersAddresses[sourceChain.name]?.[arbitrumSepolia.name]?.LayerZeroReporter,
+      [baseSepolia.name]: unidirectionalReportersAddresses[sourceChain.name]?.[baseSepolia.name]?.LayerZeroReporter,
+      [unichainSepolia.name]:
+        unidirectionalReportersAddresses[sourceChain.name]?.[unichainSepolia.name]?.LayerZeroReporter,
+      [worldchainSepolia.name]:
+        unidirectionalReportersAddresses[sourceChain.name]?.[worldchainSepolia.name]?.LayerZeroReporter,
+      [polygonAmoy.name]: unidirectionalReportersAddresses[sourceChain.name]?.[polygonAmoy.name]?.LayerZeroReporter,
     },
     adapterAddresses: {
       [polygon.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[polygon.name]?.LayerZeroAdapter,
@@ -186,6 +197,15 @@ import { settings } from "./settings/index"
       [unichainSepolia.name]:
         unidirectionalAdaptersAddresses[sourceChain.name]?.[unichainSepolia.name]?.LayerZeroAdapter,
       [sepolia.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[sepolia.name]?.LayerZeroAdapter,
+      [gnosisChiado.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[gnosisChiado.name]?.LayerZeroAdapter,
+      [arbitrumSepolia.name]:
+        unidirectionalAdaptersAddresses[sourceChain.name]?.[arbitrumSepolia.name]?.LayerZeroAdapter,
+      [baseSepolia.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[baseSepolia.name]?.LayerZeroAdapter,
+      [unichainSepolia.name]:
+        unidirectionalAdaptersAddresses[sourceChain.name]?.[unichainSepolia.name]?.LayerZeroAdapter,
+      [worldchainSepolia.name]:
+        unidirectionalAdaptersAddresses[sourceChain.name]?.[worldchainSepolia.name]?.LayerZeroAdapter,
+      [polygonAmoy.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[polygonAmoy.name]?.LayerZeroAdapter,
     },
     reportHeadersValue: settings.reporterControllers.LayerZeroReporterController.reportHeadersValue,
   })
@@ -213,13 +233,10 @@ import { settings } from "./settings/index"
     logger,
     multiClient,
     reporterAddresses: {
-      [optimismGoerli.name]: unidirectionalReportersAddresses[sourceChain.name]?.[optimismGoerli.name]?.CCIPReporter,
-      [bscTestnet.name]: unidirectionalReportersAddresses[sourceChain.name]?.[bscTestnet.name]?.CCIPReporter,
       [avalanche.name]: unidirectionalReportersAddresses[sourceChain.name]?.[avalanche.name]?.CCIPReporter,
       [gnosisChiado.name]: unidirectionalReportersAddresses[sourceChain.name]?.[gnosisChiado.name]?.CCIPReporter,
     },
     adapterAddresses: {
-      [optimismGoerli.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[optimismGoerli.name]?.CCIPAdapter,
       [bscTestnet.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[bscTestnet.name]?.CCIPAdapter,
       [avalanche.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[avalanche.name]?.CCIPAdapter,
       [gnosisChiado.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[gnosisChiado.name]?.CCIPAdapter,
