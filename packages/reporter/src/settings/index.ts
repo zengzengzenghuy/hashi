@@ -542,6 +542,23 @@ export const settings = {
             LayerZeroReporter: process.env.SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
         },
+        [polygonAmoy.name]: {
+          [sepolia.name]: {
+            LayerZeroReporter: process.env.POLYGON_AMOY_LZ_REPORTER as `0x${string}`,
+          },
+          [gnosisChiado.name]: {
+            LayerZeroReporter: process.env.POLYGON_AMOY_LZ_REPORTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroReporter: process.env.POLYGON_AMOY_LZ_REPORTER as `0x${string}`,
+          },
+          [arbitrumSepolia.name]: {
+            LayerZeroReporter: process.env.POLYGON_AMOY_LZ_REPORTER as `0x${string}`,
+          },
+          [baseSepolia.name]: {
+            LayerZeroReporter: process.env.POLYGON_AMOY_LZ_REPORTER as `0x${string}`,
+          },
+        },
         [unichainSepolia.name]: {
           [arbitrumSepolia.name]: {
             LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
