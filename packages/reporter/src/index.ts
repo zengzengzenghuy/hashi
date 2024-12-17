@@ -186,6 +186,8 @@ import { settings } from "./settings/index"
       [worldchainSepolia.name]:
         unidirectionalReportersAddresses[sourceChain.name]?.[worldchainSepolia.name]?.LayerZeroReporter,
       [polygonAmoy.name]: unidirectionalReportersAddresses[sourceChain.name]?.[polygonAmoy.name]?.LayerZeroReporter,
+      [optimismSepolia.name]:
+        unidirectionalReportersAddresses[sourceChain.name]?.[optimismSepolia.name]?.LayerZeroReporter,
     },
     adapterAddresses: {
       [polygon.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[polygon.name]?.LayerZeroAdapter,
@@ -206,6 +208,8 @@ import { settings } from "./settings/index"
       [worldchainSepolia.name]:
         unidirectionalAdaptersAddresses[sourceChain.name]?.[worldchainSepolia.name]?.LayerZeroAdapter,
       [polygonAmoy.name]: unidirectionalAdaptersAddresses[sourceChain.name]?.[polygonAmoy.name]?.LayerZeroAdapter,
+      [optimismSepolia.name]:
+        unidirectionalAdaptersAddresses[sourceChain.name]?.[optimismSepolia.name]?.LayerZeroAdapter,
     },
     reportHeadersValue: settings.reporterControllers.LayerZeroReporterController.reportHeadersValue,
   })

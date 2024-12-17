@@ -264,6 +264,9 @@ export const settings = {
           [polygonAmoy.name]: {
             LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
           },
+          [optimismSepolia.name]: {
+            LayerZeroAdapter: process.env.OPTIMISM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
         },
         [gnosisChiado.name]: {
           [arbitrumSepolia.name]: {
@@ -306,6 +309,9 @@ export const settings = {
           [sepolia.name]: {
             LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
+          [optimismSepolia.name]: {
+            LayerZeroAdapter: process.env.OPTIMISM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
           [polygonAmoy.name]: {
             LayerZeroAdapter: process.env.POLYGON_AMOY_LZ_ADAPTER as `0x${string}`,
           },
@@ -313,6 +319,14 @@ export const settings = {
         [worldchainSepolia.name]: {
           [sepolia.name]: {
             LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+        },
+        [optimismSepolia.name]: {
+          [sepolia.name]: {
+            LayerZeroAdapter: process.env.SEPOLIA_LZ_ADAPTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroAdapter: process.env.OPTIMISM_SEPOLIA_LZ_ADAPTER as `0x${string}`,
           },
         },
       },
@@ -569,6 +583,9 @@ export const settings = {
           [sepolia.name]: {
             LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
+          [optimismSepolia.name]: {
+            LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
           [polygonAmoy.name]: {
             LayerZeroReporter: process.env.UNICHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
@@ -576,6 +593,14 @@ export const settings = {
         [worldchainSepolia.name]: {
           [sepolia.name]: {
             LayerZeroReporter: process.env.WORLDCHAIN_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+        },
+        [optimismSepolia.name]: {
+          [sepolia.name]: {
+            LayerZeroReporter: process.env.OPTIMISM_SEPOLIA_LZ_REPORTER as `0x${string}`,
+          },
+          [unichainSepolia.name]: {
+            LayerZeroReporter: process.env.OPTIMISM_SEPOLIA_LZ_REPORTER as `0x${string}`,
           },
         },
       },
